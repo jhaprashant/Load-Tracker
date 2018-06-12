@@ -1,6 +1,6 @@
 {
-  "name": "oil-distribution-system",
-  "version": "0.0.0",
+  "name": "Load-Tracker",
+  "version": "1.0.0.1",
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
