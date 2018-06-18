@@ -1,1 +1,123 @@
-<h1>Hello and welcome</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-12 pdg-zero">
+            <img class="header-img" src="assets/images/banner.jpg" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-3 left-content">
+                    <nav class="navbar navbar-inverse sidebar hg-100" role="navigation">
+                        <div class="container-fluid align-start">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="#">IOC</a>
+                            </div>
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+                                <ul class="nav navbar-nav wd-100">
+                                    <li [ngClass]="{'active' : isHomeSelected}" >
+                                        <a active (click)="isHomeSelected=true;isRegisterSelected=false;isLoginSelected=false;isContactSelected=false;" href="#home">Home
+                                            <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span>
+                                        </a>
+                                    </li>
+                                    <li [ngClass]="{'active' : isRegisterSelected}">
+                                        <a (click)="isHomeSelected=false;isRegisterSelected=true;isLoginSelected=false;isContactSelected=false;" href="#register">Register
+                                            <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span>
+                                        </a>
+                                    </li>
+                                    <li [ngClass]="{'active' : isLoginSelected}">
+                                        <a (click)="isHomeSelected=false;isRegisterSelected=false;isLoginSelected=true;isContactSelected=false;" href="#login">Login
+                                            <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-log-in"></span>
+                                        </a>
+                                    </li>
+                                    <li [ngClass]="{'active' : isContactSelected}">
+                                        <a (click)="isHomeSelected=false;isRegisterSelected=false;isLoginSelected=false;isContactSelected=true;" href="#contact">Contact Us
+                                            <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-headphones"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="col-6 main-content">
+                    
+                    <div *ngIf="isRegisterSelected" name="#" class="main hg-100">
+                        <div class="col-12 border-bottom mgn-top-4 div-header">
+                            Registration
+                        </div>
+                        <app-register class="mgn-top-4"> </app-register>
+                    </div>
+                    <div *ngIf="isLoginSelected" name="#login" class="main hg-100">
+                            <div class="col-12 border-bottom mgn-top-4 div-header">
+                                    Login
+                                </div>
+                        <app-login class="mgn-top-4"> </app-login>
+                    </div>
+                    <div *ngIf="isContactSelected" name="#contact" class="main hg-100">
+                            <div class="col-12 border-bottom mgn-top-4 div-header">
+                                    Contact Us
+                                </div>
+                        <app-contactus class="mgn-top-4"> </app-contactus>
+                    </div>
+                    <div *ngIf="isHomeSelected" name="#home" class="main hg-100">
+                            <div class="col-12 border-bottom mgn-top-4 div-header">
+                                    Home
+                                </div>
+                        <p class="mgn-top-4">
+                            Indane is today one of the largest packed-LPG brands in the world. Indian Oil pioneered the launch of LPG in India in the
+                            1970s and transformed the lives of millions of people with the introduction of the clean, efficient
+                            and safe cooking fuel. LPG also led to a substantial improvement in the health of women in rural
+                            areas by replacing smoky and unhealthy chullahs with Indane. It is today a fuel synonymous with
+                            safety, reliability and convenience.
+                        </p>
+                        <p>
+                            LPG is a blend of Butane and Propane readily liquefied under moderate pressure. LPG vapour is heavier than air; thus it normally
+                            settles down in low-lying places. Since LPG has only a faint scent, a mercaptan odorant is added
+                            to help in its detection. In the event of an LPG leak, the vapourisation of liquid cools the
+                            atmosphere and condenses the water vapour contained in it to form a whitish fog, which is easy
+                            to observe. LPG in fairly large concentrations displaces oxygen leading to a nauseous or suffocating
+                            feeling.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function htmlbodyHeightUpdate() {
+        var height3 = $(window).height()
+        var height1 = $('.nav').height() + 50
+        height2 = $('.main').height()
+        if (height2 > height3) {
+            $('html').height(Math.max(height1, height3, height2) + 10);
+            $('body').height(Math.max(height1, height3, height2) + 10);
+        }
+        else {
+            $('html').height(Math.max(height1, height3, height2));
+            $('body').height(Math.max(height1, height3, height2));
+        }
+
+    }
+    $(document).ready(function () {
+        htmlbodyHeightUpdate()
+        $(window).resize(function () {
+            htmlbodyHeightUpdate()
+        });
+        $(window).scroll(function () {
+            height2 = $('.main').height()
+            htmlbodyHeightUpdate()
+        });
+    });
+</script>

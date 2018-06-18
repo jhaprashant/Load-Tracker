@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+  isRegisterSelected : boolean;
+  isLoginSelected : boolean;
+  isHomeSelected : boolean;
+  isContactSelected : boolean;
+
+  ngOnInit(){
+    this.isHomeSelected=true;
+  }
 }
